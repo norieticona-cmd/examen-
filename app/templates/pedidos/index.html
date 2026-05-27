@@ -1,35 +1,14 @@
-{% extends "base.html" %}
+<h1>Pedidos</h1>
 
-{% block content %}
+<a href="/pedidos/crear">Nuevo Pedido</a>
 
-<h2>Crear Pedido</h2>
-
-<form method="POST">
-
-    <div class="mb-3">
-        <label>Cliente</label>
-        <select name="cliente_id" class="form-control">
-            {% for c in clientes %}
-            <option value="{{ c.id }}">{{ c.nombre }}</option>
-            {% endfor %}
-        </select>
-    </div>
-
-    <div class="mb-3">
-        <label>Producto</label>
-        <select name="producto_id" class="form-control">
-            {% for p in productos %}
-            <option value="{{ p.id }}">{{ p.nombre }}</option>
-            {% endfor %}
-        </select>
-    </div>
-
-    <div class="mb-3">
-        <label>Monto</label>
-        <input type="number" name="monto" class="form-control" step="0.01">
-    </div>
-
-    <button class="btn btn-success">Guardar</button>
-</form>
-
-{% endblock %}
+<ul>
+{% for p in pedidos %}
+    <li>
+        Fecha: {{ p.fecha }} |
+        Monto: {{ p.monto }} |
+        Cliente: {{ p.cliente.nombre }} |
+        Producto: {{ p.producto.nombre }}
+    </li>
+{% endfor %}
+</ul>

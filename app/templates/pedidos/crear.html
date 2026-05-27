@@ -1,0 +1,23 @@
+<h1>Crear Pedido</h1>
+
+<form method="POST">
+
+    Fecha: <input name="fecha"><br>
+    Monto: <input name="monto"><br>
+
+    Cliente:
+    <select name="cliente_id">
+        {% for c in clientes %}
+            <option value="{{ c.id }}">{{ c.nombre }}</option>
+        {% endfor %}
+    </select><br>
+
+    Producto:
+    <select name="producto_id">
+        {% for p in productos %}
+            <option value="{{ p.id }}">{{ p.nombre }}</option>
+        {% endfor %}
+    </select><br>
+
+    <button>Guardar</button>
+</form>
